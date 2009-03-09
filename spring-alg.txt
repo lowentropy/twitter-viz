@@ -1,0 +1,42 @@
+given:
+	area = W, H
+	graph G = (V, E)
+	iter = num iterations (50)
+	temp = initial temperature (sqrt(W*H)/2 ?)
+	falloff = rate of temp decline (0.1)
+
+functions:
+	k0 = sqrt(W * H / |V|)
+	attract(x,k) =  x^2 / k
+	repulse(x,k) = -k^2 / x
+	s_norm = sum(E,e) e.str
+	k(e) = k0 * e.str / s_norm
+	k(u,v) = (e={u,v} in E) ? k(e) : k0
+	cool(t) = t * (1 - falloff)
+
+algorithm:
+	for v in V
+		v.pos = random
+	end
+	for i = 1 to iter
+		for v in V
+			v.force = 0
+			for u in V
+				next if u == v
+				d = v.pos - u.pos
+				v.force += d.dir * repulse(|d|, k(u,v))
+			end
+		end
+		for e in E
+			d = e.v.pos - e.u.pos
+			f = d.dir * attract(|d|, k(e))
+			e.v.force -= f
+			e.u.force += f
+		end
+		for v in V
+			v.pos += v.force.dir * min(v.force.mag, temp)
+			v.pos.x = min(W/2, max(-W/2, v.pos.x))
+			v.pos.y = min(H/2, max(-H/2, v.pos.y))
+			temp = cool(temp)
+		end
+	end
