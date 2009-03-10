@@ -6,13 +6,19 @@ class User
 	def initialize(user, name, bio, friends, followers, updates)
 		@user, @name, @bio, @friends, @followers, @updates = \
 		user,  name,  bio,  friends,  followers,  updates
-		@friends = {}
+		@edges = {}
 	end
-	def <<(friend, rank)
-		@friends[friend] = rank
+	def add_friend(friend, rank)
+		@edges[friend] = rank
 	end
 	def each(&block)
-		@friends.each &block
+		@edges.each &block
+	end
+	def green
+		126.0
+	end
+	def blue
+		243.0
 	end
 	def color
 		a = (friends + followers).to_f
@@ -22,7 +28,7 @@ class User
 		v = 0.8
 		hsv(h,s,v)
 	end
-	def rgb(r,g,b)
-		[r,g,b]
+	def rgb(r,g,b,a)
+		[r,g,b,a]
 	end
 end

@@ -1,7 +1,7 @@
 require 'graph'
 require 'user'
 
-def parse(filename)
+def parse_twitter(filename)
 	lines = File.read(filename).split /\n+/
 	users = {}
 	r1 = /^= ([a-zA-Z0-9_]+) (\d+) (\d+) (\d+) "([^"]*)" "([^"]*)"$/

@@ -45,4 +45,11 @@ class Vector
 		self.x = [x1, [x2, x].min].max
 		self.y = [y1, [y2, y].min].max
 	end
+	def transform!(r1, r2)
+		self.x = transform(x, r1[0], r1[2], r2[0], r2[2])
+		self.y = transform(y, r1[1], r1[3], r2[1], r2[3])
+	end
+	def transform(x, a, b, c, d)
+		(x - a) * (d - c) / (b - a) + c
+	end
 end

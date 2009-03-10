@@ -52,13 +52,13 @@
 + simeonhuffman 1
 + omgimkassie 2
 
-= IllinoisCS 108 100 "CS@Illinois" "University of Illinois Computer Science Department"
+= IllinoisCS 108 100 31 "CS@Illinois" "University of Illinois Computer Science Department"
 
 = TulsaTweeters 46 60 4 "" ""
 + tulsatweetup 1
 + justinfeed 2
 
-= xenijardin 234 21591 3665
+= xenijardin 234 21591 3665 "Xeni Jardin" "Curator of Internet Esoterica, Anomalies, and Curiosities. BB co-editor, BBtv host/exec producer. http://tv.boingboing.net"
 + DAVID_LYNCH 8
 + EFF 6
 + claytoncubitt 9
@@ -78,7 +78,7 @@
 + capnshady 5
 + DAVID_LYNCH 6
 
-= chrismessina 1321 15168 6137
+= chrismessina 1321 15168 6137 "Chris Messina" "Captain Web 2.0 #hashtagmafia"
 + seanbonner 2
 + laughingsquid 4
 + microformats 1
@@ -178,3 +178,5 @@
 = tamalw 153 156 1857 "Tamal White" "Data analyst, Ruby/Rails aficionado, anal-retentive web dev, new dad. Not in that order."
 
 = zedshaw 138 876 563 "" "Twitter is so much better stripped down."
+
+= tulsatweetup 232 295 17 "Tulsa Tweet Ups" "Place to find and learn more about Tulsa Tweetup Events"

@@ -2,7 +2,7 @@
 module Hsv2rgb
 	def hsv(h, s, v, a=1.0)
 		h, s, v = h.to_f, s.to_f, v.to_f
-		return rgb(v,v,v) if s == 0
+		return rgb(v,v,v,1.0) if s == 0
 		h *= 6
 		i = h.floor
 		v1 = v * (1 - s)

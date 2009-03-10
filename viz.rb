@@ -1,6 +1,7 @@
 #! /usr/local/bin/shoes
 
 require 'graph'
+require 'parse'
 
 $width = 500
 $height = 500
@@ -11,6 +12,7 @@ class TwitterViz < Shoes
 	def index
 		background white
 		@graph = create_graph
+		puts @graph
 		keypress do |k|
 			if k == 'r'
 				background white
@@ -39,7 +41,9 @@ private
 		r = node.radius
 		stroke black
 		strokewidth 1
-		fill node.color
+		color = node.color
+		color = rgb(*color) if color.is_a? Array
+		fill color
 		x = node.pos.x - r/2
 		y = node.pos.y - r/2
 		oval x, y, r*2, r*2
@@ -54,6 +58,18 @@ private
 	end
 
 	def create_graph
+		# create_test_graph
+		create_twitter_graph
+	end
+
+	def create_twitter_graph
+		graph = Graph.new
+		@users = parse_twitter("data.txt")
+		graph.from_twitter @users, 'lowentropy'
+		graph
+	end
+
+	def create_test_graph
 		graph = Graph.new
 		until graph.nodes.size == 10
 			node = Node.new
