@@ -13,6 +13,7 @@ class TwitterViz < Shoes
 		background white
 		@graph = create_graph
 		puts @graph
+		@id = false
 		keypress do |k|
 			if k == 'r'
 				background white
@@ -20,6 +21,17 @@ class TwitterViz < Shoes
 				draw_graph @graph
 			elsif k == 'q'
 				quit
+			elsif k == 'n'
+				@id = !@id
+			end
+		end
+		motion do |x,y|
+			if @id
+				@graph.nodes.each do |node|
+					r = node.radius
+					d = (node.pos - Vector.new(x,y)).mag
+					alert(node.info) if d < r
+				end
 			end
 		end
 	rescue
@@ -44,8 +56,15 @@ private
 		color = node.color
 		color = rgb(*color) if color.is_a? Array
 		fill color
-		x = node.pos.x - r/2
-		y = node.pos.y - r/2
+		x = node.pos.x - r
+		y = node.pos.y - r
+		oval x, y, r*2, r*2
+		r = node.ext_radius
+		return if r < node.radius
+		x = node.pos.x - r
+		y = node.pos.y - r
+		nofill
+		strokewidth 5
 		oval x, y, r*2, r*2
 	end
 

@@ -11,6 +11,14 @@ class User
 	def add_friend(friend, rank)
 		@edges[friend] = rank
 	end
+	def info
+		str = user
+		str << " (#{name})" if name
+		str << "\n#{friends} friends,"
+		str << " #{followers} followers"
+		str << "\n#{bio}" if bio
+		str
+	end
 	def each(&block)
 		@edges.each &block
 	end
@@ -19,6 +27,9 @@ class User
 	end
 	def blue
 		243.0
+	end
+	def size
+		friends + followers
 	end
 	def color
 		a = (friends + followers).to_f

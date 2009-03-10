@@ -15,6 +15,9 @@ class Node
 	def self.from_twitter(user)
 		Node.new user, 0, 0, user.updates, user.color
 	end
+	def info
+		user.info
+	end
 	def mass
 		area / 500.0
 	end
@@ -27,5 +30,8 @@ class Node
 	end
 	def radius
 		Math.sqrt(area / Math::PI)
+	end
+	def ext_radius
+		Math.sqrt(user.size / Math::PI)
 	end
 end
