@@ -15,15 +15,19 @@ class Graph
 			@edges << node_or_edge
 		end
 	end
-	def from_twitter(users, root)
+	def from_twitter(users, root, pos, rng)
 		return @names[root] if @names[root]
 		user = users[root]
 		raise "user '#{root}' not found!" unless user
 		node = Node.from_twitter user
+		node.pos.x = pos[0]
+		node.pos.y = pos[1]
 		@names[root] = node
 		self << node
 		user.each do |name,rank|
-			fr = from_twitter(users, name)
+			x = pos[0] + rand(rng)
+			y = pos[1] = rand(rng)
+			fr = from_twitter(users, name, [x,y], rng/2)
 			edge = link! node, fr
 			edge.strength = 15.0 / (rank.to_i + 4)
 		end

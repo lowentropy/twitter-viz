@@ -65,7 +65,7 @@ private
 	def create_twitter_graph
 		graph = Graph.new
 		@users = parse_twitter("data.txt")
-		graph.from_twitter @users, 'lowentropy'
+		graph.from_twitter @users, 'lowentropy', [$width/2,$height/2], 100
 		graph
 	end
 

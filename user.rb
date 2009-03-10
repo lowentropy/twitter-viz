@@ -26,7 +26,8 @@ class User
 		h = (friends * blue + followers * green) / a
 		s = b / a
 		v = 0.8
-		hsv(h,s,v)
+		r,g,b,a = hsv(h,s,v)
+		[0.1,g,b,a]
 	end
 	def rgb(r,g,b,a)
 		[r,g,b,a]
