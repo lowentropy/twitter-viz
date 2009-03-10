@@ -11,7 +11,15 @@ class TwitterViz < Shoes
 	def index
 		background white
 		@graph = create_graph
-		draw_graph @graph
+		keypress do |k|
+			if k == 'r'
+				background white
+				@graph.layout! 0, 0, $width, $height
+				draw_graph @graph
+			elsif k == 'q'
+				quit
+			end
+		end
 	rescue
 		handle($!)
 	end
@@ -46,16 +54,25 @@ private
 	end
 
 	def create_graph
-		node = Node.new
-		node.pos.x = $width / 2
-		node.pos.y = $height / 2
 		graph = Graph.new
-		graph << node
+		until graph.nodes.size == 10
+			node = Node.new
+			node.area = rand(1000) + 200
+			node.pos.rand! 0, 0, $width, $height
+			graph << node
+		end
+		until graph.connected?
+		#until graph.edges.size == 15
+			u, v = graph.random_nodes(2)
+			next if u.link_to v
+			edge = graph.link! u, v
+			edge.strength = rand(4) + 1
+		end
 		graph
 	end
 
 	def handle(err)
-		puts err
+		puts err.message
 		puts err.backtrace
 	end
 

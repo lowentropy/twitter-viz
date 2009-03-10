@@ -8,4 +8,7 @@ class Edge
 	def k(k0, norm)
 		k0 * strength / norm
 	end
+	def width
+		strength * 3
+	end
 end

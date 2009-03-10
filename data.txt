@@ -1,0 +1,180 @@
+= lowentropy 19 14 228 "" ""
++ josephholsten 1
++ warrenellis 4
++ bjpohl 2
++ asymmystic 3
++ IllinoisCS 5
++ TulsaTweeters 6
++ xenijardin 7
++ JhonenV 10
++ chrismessina 8
++ _why 9
+
+= josephholsten 155 510 2639 "Joseph Holsten" "Whatever you are, I am too"
++ zoetica 8
++ JhonenV 9
++ clapifyoulikeme 5
++ mollycrabapple 10
++ chrismessina 4
++ bjpohl 3
++ warrenellis 6
++ _why 7
++ boofy 1
++ ibspoof 2
+
+= warrenellis 121 22011 3269 "Warren Ellis" "English Writer. Not Australian Musician. Hasn't slept since 1985."
++ JhonenV 8
++ claytoncubitt 6
++ mollycrabapple 7
++ zdarsky 2
++ Templesmith 1
++ cascio 3
++ xenijardin 5
++ zoetica 4
++ wilw 9
++ rstevens 10
+
+= bjpohl 24 26 27 "B.J. Pohl" ""
++ tulsagroups 2
++ eshupps 3
++ josephholsten 1
++ kpapagno 4
++ TulsaTweeters 7
++ seven1m 6
++ smgoller 8
++ pmarino 5
++ cfaller96 9
++ Dale_Pelchat 10
+
+= asymmystic 5 4 20 "Aidan Matthews" ""
++ clapifyoulikeme 3
++ skeetamatthews 4
++ simeonhuffman 1
++ omgimkassie 2
+
+= IllinoisCS 108 100 "CS@Illinois" "University of Illinois Computer Science Department"
+
+= TulsaTweeters 46 60 4 "" ""
++ tulsatweetup 1
++ justinfeed 2
+
+= xenijardin 234 21591 3665
++ DAVID_LYNCH 8
++ EFF 6
++ claytoncubitt 9
++ bruces 10
++ boingboingvideo 3
++ DrewCurtis 7
++ hodgman 5
++ apelad 4
++ BoingBoing 1
++ Frauenfelder 2
+
+= JhonenV 30 6401 1078 "Jhonen Vasquez" "I'm no good with the sensitive ones"
++ zoetica 1
++ 3liza 2
++ MarsPhoenix 10
++ rstevens 7
++ capnshady 5
++ DAVID_LYNCH 6
+
+= chrismessina 1321 15168 6137
++ seanbonner 2
++ laughingsquid 4
++ microformats 1
++ chokha 3
+
+= _why 52 3830 947 "why the lucky stiff" "the ill-conceived freelance prof"
++ mentalguy 1
++ golan 5
++ yukihiro_matz 2
++ tamalw 4
++ zedshaw 3
+
+= zoetica 141 2750 1821 "Zoetica Ebb" "Electric cosmonomad, painter, style technician."
+
+= clapifyoulikeme 130 616 2191 "Abby Spice" "Not-so-nice Jewish girl. Flaming liberal. Also, flaming. As in on fire. Burning. Etc. Clapifyoulikeme[at]gmail[dot]com"
+
+= mollycrabapple 71 1506 924 "" "Will draw for gold or coffee"
+
+= boofy 27 31 497 "Boofy" "The purpose of setting goals is to inspire action, not predict it."
+
+= ibspoof 214 243 2979 "iBspoof" "Sarcastic, Driven, Dork, Electronophile, Witty, Lame"
+
+= claytoncubitt 44 756 658 "Clayton Cubitt" "Photographic instigator."
+
+= zdarsky 103 1052 1489 "" "Just pulling myself together since you left me."
+
+= Templesmith 166 3666 9985 "Ben Templesmith" "Australian. In America. Writer, artist, rider of the Worm. Made career out of Werewolf sodomy & tranny Leprechauns."
+
+= cascio 198 1106 2214 "Jamais Cascio" "Futurist. Writer. Blogger. Co-Founded Worldchanging.com."
+
+= wilw 90 207714 4618 "Wil Wheaton" "I'm just this guy, you know?"
+
+= rstevens 309 5706 6981 "" "I make cartoons and t-shirts!"
+
+= tulsagroups 2 22 24 "TulsaGroups" "All Tulsa Area Technology User Groups"
+
+= eshupps 27 171 214 "" ""
+
+= kpapagno 21 33 142 "Ken Papagno" "Business Solutions Architect - eMeter Corporation"
+
+= seven1m 64 99 283 "Tim Morgan" "programmer and dad"
+
+= smgoller 17 24 76 "" ""
+
+= pmarino 4 4 23 "" ""
+
+= cfaller96 22 21 759 "" ""
+
+= Dale_Pelchat 19 20 209 "" ""
+
+= skeetamatthews 9 2 7 "Megan Robinson" "I'm at the top and I'm never coming back again."
+
+= simeonhuffman 11 4 17 "" ""
+
+= omgimkassie 5 4 13 "" "i've been through a lot of shit and i'm better for it. i'm also a graphic design student"
+
+= justinfeed 113 103 2379 "Justin Davis" "JustinFeed, gay troublemaker from Tulsa, OK"
+
+= DAVID_LYNCH 11 25084 149 "David Lynch" "Filmmaker. Born Missoula, MT. Eagle Scout."
+
+= EFF 82 4744 66 "" "defending your civil liberties in a digital world!"
+
+= bruces 137 2440 330 "Bruce Sterling" "one of the better-known Bruce Sterlings"
+
+= boingboingvideo 48 1136 184 "Boing Boing Video" "The daily online video program from Boing Boing. A directory of wonderful videos!"
+
+= DrewCurtis 27 1700 390 "" "Some Guy who runs Fark.com. Beer. Boobies. That about covers it"
+
+= hodgman 114 48748 1695 "" "hodgman=expert"
+
+= apelad 878 2216 5968 "Adam Koford" "I draw."
+
+= BoingBoing 4 8647 10396 "Boing Boing" "The latest BoingBoing.net headlines"
+
+= Frauenfelder 179 6233 406 "Mark Frauenfelder" "Editor-in-chief of MAKE, founder of Boing Boing"
+
+= 3liza 93 651 704 "Eliza Gauger" "Mercenary artist, grammar vandal, angry enthusiast."
+
+= MarsPhoenix 4 42875 663 "" "I dig Mars!"
+
+= capnshady 69 65 155 "" ""
+
+= seanbonner 178 5562 10480 "sean bonner" "internet trouble maker"
+
+= laughingsquid 2107 34768 6407 "Scott Beale" "founder & primary tentacle of Laughing Squid"
+
+= microformats 81 7442 161 "" "http://microformats.org/wiki/"
+
+= chokha 578 430 172 "" "Consciousness,Startups,Opensource,How can I help you today(no strings attached)?, Linux,Change,Mobility,Give,Raw foods,Embrace,LAMP,Android,Star Trek,Squash."
+
+= mentalguy 46 174 192 "MenTaLguY" ""
+
+= golan 23 471 270 "Golan Levin" "We fling flongs all day long."
+
+= yukihiro_matz 11 450 122 "Yukihiro Matsumoto" ""
+
+= tamalw 153 156 1857 "Tamal White" "Data analyst, Ruby/Rails aficionado, anal-retentive web dev, new dad. Not in that order."
+
+= zedshaw 138 876 563 "" "Twitter is so much better stripped down."
