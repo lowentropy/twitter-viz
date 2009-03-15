@@ -5,16 +5,29 @@ class Vector
 	def initialize(x, y)
 		self.x, self.y = x, y
 	end
-	def mag
-		dot = (x*x + y*y).to_f
-		dot.nan? ? 0.0 : sqrt(dot)
+	def set_to(array)
+		self.x, self.y = array
 	end
-	def dir
-		m = mag
+	def decompose(k=1)
+		m = fix! k
+		[m, dir(m)]
+	end
+	def fix!(k=1)
+		if (m = mag) < 0.000001
+			self.x = 0.001 * k * (rand * 1.4 - 0.7)
+			self.y = 0.001 * k * (rand * 1.4 - 0.7)
+			m = mag
+		end
+		m
+	end
+	def mag
+		sqrt(x*x + y*y)
+	end
+	def dir(m=mag)
 		if m < 0.00001
 			self
 		else
-			self / mag
+			self / m
 		end
 	end
 	def +(v)
@@ -36,10 +49,6 @@ class Vector
 	def zero!
 		self.x, self.y = 0, 0
 	end
-	def fix_nan!
-		self.x = 0.0 if self.x.nan?
-		self.y = 0.0 if self.y.nan?
-	end
 	def bound!(x1, y1, x2, y2)
 		self.fix_nan!
 		self.x = [x1, [x2, x].min].max
@@ -49,6 +58,7 @@ class Vector
 		self.x = transform(x, r1[0], r1[2], r2[0], r2[2])
 		self.y = transform(y, r1[1], r1[3], r2[1], r2[3])
 	end
+private
 	def transform(x, a, b, c, d)
 		(x - a) * (d - c) / (b - a) + c
 	end
