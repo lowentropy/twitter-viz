@@ -12,19 +12,8 @@ class TwitterViz < Shoes
 	def index
 		background white
 		@graph = create_graph
-		puts @graph
 		@id = false
-		keypress do |k|
-			if k == 'r'
-				background white
-				@graph.layout! 0, 0, $width, $height
-				draw_graph @graph
-			elsif k == 'q'
-				quit
-			elsif k == 'n'
-				@id = !@id
-			end
-		end
+		keypress {|k| handle_key(k)}
 		motion do |x,y|
 			if @id
 				@graph.nodes.each do |node|
@@ -35,10 +24,22 @@ class TwitterViz < Shoes
 			end
 		end
 	rescue
-		handle($!)
+		handle_error($!)
 	end
 
 private
+
+	def handle_key(k)
+		if k == 'r'
+			background white
+			@graph.layout! 0, 0, $width, $height
+			draw_graph @graph
+		elsif k == 'q'
+			quit
+		elsif k == 'n'
+			@id = !@id
+		end
+	end
 
 	def draw_graph(graph)
 		graph.edges.each do |edge|
@@ -50,15 +51,23 @@ private
 	end
 
 	def draw_node(node)
+		draw_circle(node)
+		draw_band(node)
+	end
+
+	def draw_circle(node)
 		r = node.radius
-		stroke black
-		strokewidth 1
 		color = node.color
 		color = rgb(*color) if color.is_a? Array
 		fill color
+		stroke black
+		strokewidth 1
 		x = node.pos.x - r
 		y = node.pos.y - r
 		oval x, y, r*2, r*2
+	end
+
+	def draw_band(node)
 		r = node.ext_radius
 		return if r < node.radius
 		x = node.pos.x - r
@@ -106,7 +115,7 @@ private
 		graph
 	end
 
-	def handle(err)
+	def handle_error(err)
 		puts err.message
 		puts err.backtrace
 	end

@@ -70,7 +70,7 @@ class Graph
 			v.pos.rand! left, top, right, bottom
 			v.vel.zero!
 		end
-		while (ke.nil? or ke > 0.01) and iter < 50 # 200
+		while (ke.nil? or ke > 0.01) and iter < 200
 			iter += 1
 			# calculate repulsive forces
 			nodes.each do |v|
