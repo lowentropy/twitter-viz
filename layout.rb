@@ -1,28 +1,35 @@
+# see C Walshaw, "A Multilevel Algorithm for Force-Directed Graph-Drawing"
 module MultiLevelLayout
 
+	# top-level layout
 	def layout(nodes)
-		distribute_edge_weights(nodes)
-		force_layout(nodes)
+		if nodes.size == 2
+			root_layout(nodes)
+		else
+			force_layout(nodes)
+		end
 	end
 
 private
 
+	# base case can be set arbitrarily
+	def root_layout(nodes)
+		# set up fixed constants
+		@damp = 0.9
+		@tol = 0.01
+		@force = 0.2
+		@grow = sqrt(7.0/4.0)
+		# set up initial constants
+		@k = 100
+		@l = 0
+		# position two nodes
+		nodes[0].pos.set_to  0, 0
+		nodes[1].pos.set_to @k, 0
+		nodes
+	end
+
+	# FDP case; coulomb forces and springs, yay!
 	def force_layout(nodes)
-		# base case can be set arbitrarily
-		if nodes.size == 2
-			# set up fixed constants
-			@damp = 0.9
-			@tol = 0.01
-			@force = 0.2
-			@grow = sqrt(7.0/4.0)
-			# set up initial constants
-			@k = 100
-			@l = 0
-			# position two nodes
-			nodes[0].pos.set_to  0, 0
-			nodes[1].pos.set_to @k, 0
-			return nodes
-		end
 		# first, obtain layout of parent graph
 		nodes = parent_layout(nodes)
 		# update constants
@@ -64,6 +71,7 @@ private
 		end
 	end
 
+	# repulsive force, from cell members only
 	def fr(x, w)
 		if x <= @r
 			-@force * w * @k**2 / x
@@ -72,10 +80,12 @@ private
 		end
 	end
 
+	# attractive force, for linked nodes only
 	def fa(x)
 		x**2 / @k
 	end
 
+	# divide area based on grid
 	def find_cell(pos)
 		x = pos.x / @r
 		y = pos.y / @r
@@ -83,29 +93,31 @@ private
 		@cells[index] ||= []
 	end
 
+	# reset cells
 	def delete_cells!
 		@cells = {}
 	end
 
+	# lay out a coarser graph, then expand it
 	def parent_layout(nodes)
-		shrunk = shrink nodes
-		layout = force_layout shrunk
-		expand layout
+		expand(layout(shrink(nodes)))
 	end
 
+	# shrink graph by combining vertex pairs
 	def shrink(nodes)
-		shrunk = nodes[0..-1]
-	end
-
-	def expand(nodes)
-	end
-
-	def distribute_edge_weights(nodes)
-		nodes.each do |v|
-			v.weight = 0
-			v.edges.each do |edge|
-				v.weight += edge.weight
-			end
+		nodes = nodes[0..-1]
+		while nodes.any?
+			u = nodes.delete_at rand(nodes.size)
+			v = u.neighbors.sort_by {|n| n.weight}.first
+			nodes.delete v
+			# TODO: have to track new edges and do actual merge
 		end
+		# TODO
 	end
+
+	# expand graph by adding vertices at location of group
+	def expand(nodes)
+		# TODO
+	end
+
 end

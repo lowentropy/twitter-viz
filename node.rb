@@ -2,7 +2,7 @@ require 'vector'
 
 class Node
 	attr_reader :user, :edges
-	attr_accessor :pos, :force, :vel, :color, :area
+	attr_accessor :pos, :force, :vel, :color, :area, :cell, :orig
 	def initialize(user=nil, x=0, y=0, a=300, c=rgb(0.0,0.0,1.0))
 		@user = user
 		@edges = {}
@@ -27,6 +27,9 @@ class Node
 	end
 	def link_to(v)
 		edges[v]
+	end
+	def neighbors
+		edges.values
 	end
 	def radius
 		Math.sqrt(area / Math::PI)

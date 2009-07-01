@@ -2,20 +2,30 @@ require 'node'
 require 'edge'
 require 'util'
 
+# graph which assumes nodes and edges are weighted
 class Graph
+
+	include Layout
 	attr_reader :nodes, :edges
+
 	def initialize(nodes=[], edges=[])
 		@nodes, @edges = nodes, edges
 		@cells = {}
 		@names = {}
 	end
-	def <<(node_or_edge)
-		if node_or_edge.is_a? Node
-			@nodes << node_or_edge
-		else
-			@edges << node_or_edge
-		end
+
+	# perform layout on nodes and collect edges
+	def layout!
+		@nodes = layout(@nodes)
+		@edges = @nodes.map {|n| n.edges}.flatten.uniq
 	end
+
+	# append node to graph
+	def <<(node)
+		@nodes << node
+	end
+
+	# construct graph from a twitter network
 	def from_twitter(users, root, pos, rng)
 		return @names[root] if @names[root]
 		user = users[root]
@@ -33,6 +43,8 @@ class Graph
 		end
 		node
 	end
+
+	# select a number of random nodes from the graph
 	def random_nodes(n)
 		sel = []
 		until sel.size == n
@@ -42,12 +54,13 @@ class Graph
 		end
 		sel
 	end
+
+	# number of nodes in the graph
 	def size
 		nodes.size
 	end
-	def connected?
-		nodes.all? {|n| n.edges.size > 0}
-	end
+
+	# add and return a link between two nodes in the graph
 	def link!(u, v)
 		edge = Edge.new u, v, 1
 		edges << edge
@@ -56,6 +69,7 @@ class Graph
 		edge
 	end
 
+	# convert to string
 	def to_s
 		nodes.each do |node|
 			puts "AREA = #{node.area}, COLOR = #{node.color.inspect}"
